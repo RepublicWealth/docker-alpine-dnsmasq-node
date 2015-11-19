@@ -11,11 +11,11 @@ Tutum or other Docker cluster environments that use DNS-based service discovery
 and rely on the containers being able to use the search domains from resolv.conf
 for resolving service names.
 
-[![Docker Repository on Quay](https://quay.io/repository/trunk/docker-alpine-node-kubernetes/status "Docker Repository on Quay")](https://quay.io/repository/trunk/docker-alpine-node-kubernetes)
+[![Docker Repository on Quay](https://quay.io/repository/trunk/alpine-node-kubernetes/status "Docker Repository on Quay")](https://quay.io/repository/trunk/alpine-node-kubernetes)
 
 Versions v5.1.0, v4.2.2, v0.12.7 – built on [Alpine Linux](https://alpinelinux.org/).
 
-All versions use the one [quay.io/trunk/docker-alpine-node-kubernetes](https://quay.io/repository/trunk/docker-alpine-node-kubernetes/)
+All versions use the one [quay.io/trunk/docker-alpine-node-kubernetes](https://quay.io/repository/trunk/alpine-node-kubernetes/)
 repository, but each version aligns with the following tags (ie, `trunk/docker-alpine-node-kubernetes:<tag>`):
 
 - Full install built with npm (2.14.9 unless specified):
@@ -30,23 +30,17 @@ repository, but each version aligns with the following tags (ie, `trunk/docker-a
 Example
 -------
 
-    $ docker run trunkplatform/docker-alpine-node-kubernetes node --version
+    $ docker run quay.io/trunk/alpine-node-kubernetes node --version
     v5.1.0
 
-    $ docker run trunk/docker-alpine-node-kubernetes:4 node --version
+    $ docker run quay.io/trunk/alpine-node-kubernetes:4 node --version
     v4.2.2
 
-    $ docker run trunk/docker-alpine-node-kubernetes npm --version
+    $ docker run quay.io/trunk/alpine-node-kubernetes npm --version
     3.4.0
 
-    $ docker run trunk/docker-alpine-node-kubernetes:base node --version
+    $ docker run quay.io/trunk/alpine-node-kubernetes:base node --version
     v5.1.0
-
-    $ docker run trunk/docker-alpine-node-kubernetes:3 iojs --version
-    v3.3.1
-
-    $ docker run trunk/docker-alpine-node-kubernetes:base-0.10 node --version
-    v0.10.40
 
 Example Dockerfile for your own Node.js project
 -----------------------------------------------
@@ -58,9 +52,9 @@ then you don't need an `npm install` step in your Dockerfile and you don't need
 `npm` installed in your Docker image – so you can use one of the smaller
 `base*` images.
 
-    FROM trunk/docker-alpine-node-kubernetes:base
-    # FROM trunk/docker-alpine-node-kubernetes:base-0.10
-    # FROM trunk/docker-alpine-node-kubernetes
+    FROM quay.io/trunk/alpine-node-kubernetes:base
+    # FROM quay.io/trunk/alpine-node-kubernetes:base-0.10
+    # FROM quay.io/trunk/alpine-node-kubernetes
 
     WORKDIR /src
     ADD . .
