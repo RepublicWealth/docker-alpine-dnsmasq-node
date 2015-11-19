@@ -11,6 +11,8 @@ Tutum or other Docker cluster environments that use DNS-based service discovery
 and rely on the containers being able to use the search domains from resolv.conf
 for resolving service names.
 
+[![Docker Repository on Quay](https://quay.io/repository/trunk/docker-alpine-node-kubernetes/status "Docker Repository on Quay")](https://quay.io/repository/trunk/docker-alpine-node-kubernetes)
+
 Versions v5.1.0, v4.2.2, v0.12.7 – built on [Alpine Linux](https://alpinelinux.org/).
 
 All versions use the one [quay.io/trunk/docker-alpine-node-kubernetes](https://quay.io/repository/trunk/docker-alpine-node-kubernetes/)
