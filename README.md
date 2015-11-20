@@ -16,16 +16,16 @@ for resolving service names.
 Versions v5.1.0, v4.2.2, v0.12.7 – built on [Alpine Linux](https://alpinelinux.org/).
 
 All versions use the one [quay.io/trunk/docker-alpine-node-kubernetes](https://quay.io/repository/trunk/alpine-node-kubernetes/)
-repository, but each version aligns with the following tags (ie, `trunk/docker-alpine-node-kubernetes:<tag>`):
+repository, but each version aligns with the following tags (ie, `trunk/docker-alpine-node-kubernetes:<tag>`, size is full/compressed):
 
 - Full install built with npm (2.14.9 unless specified):
-  - `latest`, `5`, `5.1`, `5.1.0` – 42.34 MB (npm 3.4.0)
-  - `4`, `4.2`, `4.2.2` – ##.## MB
-  - `0.12`, `0.12.7` – ##.## MB
+  - `latest`, `5`, `5.1`, `5.1.0` – 42.34 MB/15.9 MB (npm 3.4.0)
+  - `4`, `4.2`, `4.2.2` – ##.## MB / 15.7 MB
+  - `0.12`, `0.12.7` – ##.## MB / 14.7 MB
 - Base install with node built as a static binary with no npm:
-  - `base`, `base-5`, `base-5.1`, `base-5.1.0` – ##.## MB
-  - `base-4`, `base-4.2`, `base-4.2.2` – ##.## MB
-  - `base-0.12`, `base-0.12.7` – ##.## MB
+  - `base`, `base-5`, `base-5.1`, `base-5.1.0` – ##.## MB / 13.4 MB
+  - `base-4`, `base-4.2`, `base-4.2.2` – ##.## MB / 13.3 MB
+  - `base-0.12`, `base-0.12.7` – ##.## MB / 12.2 MB
 
 Example
 -------
@@ -52,12 +52,23 @@ then you don't need an `npm install` step in your Dockerfile and you don't need
 `npm` installed in your Docker image – so you can use one of the smaller
 `base*` images.
 
+It is recommended you setup you process to run using [s6](http://skarnet.org/software/s6/)
+as s6 is using `ENTRYPOINT` to run its `init`. Example usage can be found in 
+[janeczku/alpine-kubernetes](https://hub.docker.com/r/janeczku/alpine-kubernetes/).
+
     FROM quay.io/trunk/alpine-node-kubernetes:base
     # FROM quay.io/trunk/alpine-node-kubernetes:base-0.10
     # FROM quay.io/trunk/alpine-node-kubernetes
 
     WORKDIR /src
-    ADD . .
+    
+    # Copy the s6 service.d file(s)
+    # S6 requires and executable (755) runfile to be deployed to:
+    # /etc/services.d/{APPLICATION NAME}/run
+    COPY rootfs /
+    
+    # Copy the application
+    COPY bin ./bin
 
     # If you have native dependencies, you'll need extra tools
     # RUN apk add --update make gcc g++ python
@@ -70,9 +81,8 @@ then you don't need an `npm install` step in your Dockerfile and you don't need
     #   rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp
 
     EXPOSE 3000
-    # You must use CMD as ENTRYPOINT has be used by s6 to run the
-    # DNS service.
-    CMD ["node", "index.js"]
+    # If you don't want to use s6, you must use CMD
+    # CMD ["node", ".bin/index.js"]
 
 Caveats
 -------
