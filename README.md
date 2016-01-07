@@ -15,8 +15,8 @@ for resolving service names.
 
 Versions v5.4.0, v4.2.2, v0.12.7 – built on [Alpine Linux](https://alpinelinux.org/).
 
-All versions use the one [quay.io/trunk/docker-alpine-dnsmasq-node](https://quay.io/repository/republicwealth/alpine-dnsmasq-node/)
-repository, but each version aligns with the following tags (ie, `trunk/docker-alpine-node-kubernetes:<tag>`, size is full/compressed):
+All versions use the one [quay.io/republicwealth/docker-alpine-dnsmasq-node](https://quay.io/repository/republicwealth/alpine-dnsmasq-node/)
+repository, but each version aligns with the following tags (ie, `republicwealth/docker-alpine-node-kubernetes:<tag>`, size is full/compressed):
 
 - Full install built with npm (2.14.9 unless specified):
   - `latest`, `5`, `5.4`, `5.4.0` – 42.34 MB/15.9 MB (npm 3.4.0)
@@ -30,16 +30,16 @@ repository, but each version aligns with the following tags (ie, `trunk/docker-a
 Example
 -------
 
-    $ docker run quay.io/trunk/alpine-node-kubernetes node --version
+    $ docker run quay.io/republicwealth/alpine-node-kubernetes node --version
     v5.4.0
 
-    $ docker run quay.io/trunk/alpine-node-kubernetes:4 node --version
+    $ docker run quay.io/republicwealth/alpine-node-kubernetes:4 node --version
     v4.2.2
 
-    $ docker run quay.io/trunk/alpine-node-kubernetes npm --version
+    $ docker run quay.io/republicwealth/alpine-node-kubernetes npm --version
     3.4.0
 
-    $ docker run quay.io/trunk/alpine-node-kubernetes:base node --version
+    $ docker run quay.io/republicwealth/alpine-node-kubernetes:base node --version
     v5.4.0
 
 Example Dockerfile for your own Node.js project
@@ -56,9 +56,9 @@ It is recommended you setup you process to run using [s6](http://skarnet.org/sof
 as s6 is using `ENTRYPOINT` to run its `init`. Example usage can be found in 
 [janeczku/alpine-kubernetes](https://hub.docker.com/r/janeczku/alpine-kubernetes/).
 
-    FROM quay.io/trunk/alpine-node-kubernetes:base
-    # FROM quay.io/trunk/alpine-node-kubernetes:base-0.10
-    # FROM quay.io/trunk/alpine-node-kubernetes
+    FROM quay.io/republicwealth/alpine-node-kubernetes:base
+    # FROM quay.io/republicwealth/alpine-node-kubernetes:base-0.10
+    # FROM quay.io/republicwealth/alpine-node-kubernetes
 
     WORKDIR /src
     
