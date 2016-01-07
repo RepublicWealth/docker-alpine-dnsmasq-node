@@ -13,17 +13,17 @@ for resolving service names.
 
 [![Docker Repository on Quay](https://quay.io/repository/trunk/alpine-node-kubernetes/status "Docker Repository on Quay")](https://quay.io/repository/trunk/alpine-node-kubernetes)
 
-Versions v5.1.0, v4.2.2, v0.12.7 – built on [Alpine Linux](https://alpinelinux.org/).
+Versions v5.3.0, v4.2.2, v0.12.7 – built on [Alpine Linux](https://alpinelinux.org/).
 
 All versions use the one [quay.io/trunk/docker-alpine-node-kubernetes](https://quay.io/repository/trunk/alpine-node-kubernetes/)
 repository, but each version aligns with the following tags (ie, `trunk/docker-alpine-node-kubernetes:<tag>`, size is full/compressed):
 
 - Full install built with npm (2.14.9 unless specified):
-  - `latest`, `5`, `5.1`, `5.1.0` – 42.34 MB/15.9 MB (npm 3.4.0)
+  - `latest`, `5`, `5.3`, `5.3.0` – 42.34 MB/15.9 MB (npm 3.4.0)
   - `4`, `4.2`, `4.2.2` – ##.## MB / 15.7 MB
   - `0.12`, `0.12.7` – ##.## MB / 14.7 MB
 - Base install with node built as a static binary with no npm:
-  - `base`, `base-5`, `base-5.1`, `base-5.1.0` – ##.## MB / 13.4 MB
+  - `base`, `base-5`, `base-5.3`, `base-5.3.0` – ##.## MB / 13.4 MB
   - `base-4`, `base-4.2`, `base-4.2.2` – ##.## MB / 13.3 MB
   - `base-0.12`, `base-0.12.7` – ##.## MB / 12.2 MB
 
@@ -31,7 +31,7 @@ Example
 -------
 
     $ docker run quay.io/trunk/alpine-node-kubernetes node --version
-    v5.1.0
+    v5.3.0
 
     $ docker run quay.io/trunk/alpine-node-kubernetes:4 node --version
     v4.2.2
