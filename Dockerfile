@@ -1,4 +1,4 @@
-FROM janeczku/alpine-kubernetes:3.2
+FROM janeczku/alpine-kubernetes:3.3
 
 # ENV VERSION=v0.10.41 CFLAGS="-D__USE_MISC" NPM_VERSION=2
 # ENV VERSION=v0.12.9 NPM_VERSION=2
