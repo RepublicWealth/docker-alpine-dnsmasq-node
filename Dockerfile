@@ -1,5 +1,6 @@
 FROM janeczku/alpine-kubernetes:3.3
 
+ENV CONFIG_FLAGS="--fully-static --without-npm" DEL_PKGS="libgcc libstdc++" RM_DIRS=/usr/include
 ENV VERSION=v5.5.0 NPM_VERSION=3
 
 RUN apk add --update curl make gcc g++ binutils-gold python linux-headers paxctl libgcc libstdc++ && \
