@@ -13,19 +13,22 @@ for resolving service names.
 
 [![Docker Repository on Quay](https://quay.io/repository/republicwealth/alpine-dnsmasq-node/status "Docker Repository on Quay")](https://quay.io/repository/republicwealth/alpine-dnsmasq-node)
 
-Versions v5.4.0, v4.2.2, v0.12.7 – built on [Alpine Linux](https://alpinelinux.org/).
-
 All versions use the one [quay.io/republicwealth/docker-alpine-dnsmasq-node](https://quay.io/repository/republicwealth/alpine-dnsmasq-node/)
 repository, but each version aligns with the following tags (ie, `republicwealth/docker-alpine-node-kubernetes:<tag>`, size is full/compressed):
 
-- Full install built with npm (2.14.9 unless specified):
-  - `latest`, `5`, `5.4`, `5.4.0` – 42.34 MB/15.9 MB (npm 3.4.0)
-  - `4`, `4.2`, `4.2.2` – ##.## MB / 15.7 MB
-  - `0.12`, `0.12.7` – ##.## MB / 14.7 MB
+- Full install built with npm (2.14.15 unless specified):
+  - `latest`, `5`, `5.5`, `5.5.0` – 37.01 MB (npm 3.5.3)
+  - `4`, `4.2`, `4.2.5` – 36.42 MB
+  - `0.12`, `0.12.9` – 33.11 MB
+  - `0.10`, `0.10.41` – 28.46 MB
 - Base install with node built as a static binary with no npm:
-  - `base`, `base-5`, `base-5.3`, `base-5.4.0` – ##.## MB / 13.4 MB
-  - `base-4`, `base-4.2`, `base-4.2.2` – ##.## MB / 13.3 MB
-  - `base-0.12`, `base-0.12.7` – ##.## MB / 12.2 MB
+  - `base`, `base-5`, `base-5.5`, `base-5.5.0` – 26.01 MB
+  - `base-4`, `base-4.2`, `base-4.2.5` – 25.63 MB
+  - `base-0.12`, `base-0.12.9` – 22.31 MB
+  - `base-0.10`, `base-0.10.41` – 18.5 MB
+
+
+Major io.js versions [are tagged too](https://hub.docker.com/r/mhart/alpine-node/tags/).
 
 Example
 -------
