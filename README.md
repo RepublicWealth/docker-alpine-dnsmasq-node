@@ -27,9 +27,6 @@ repository, but each version aligns with the following tags (ie, `republicwealth
   - `base-0.12`, `base-0.12.9` – 22.31 MB
   - `base-0.10`, `base-0.10.41` – 18.5 MB
 
-
-Major io.js versions [are tagged too](https://hub.docker.com/r/mhart/alpine-node/tags/).
-
 Example
 -------
 
