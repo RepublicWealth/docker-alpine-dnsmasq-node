@@ -1,6 +1,6 @@
-FROM janeczku/alpine-kubernetes:3.3
-
-ENV VERSION=v5.5.0 NPM_VERSION=3
+FROM quay.io/republicwealth/alpine-s6:3.3
+MAINTAINER engineers@republicwealth.com.au
+ENV VERSION=v5.3.0 NPM_VERSION=3
 
 RUN apk add --update curl make gcc g++ binutils-gold python linux-headers paxctl libgcc libstdc++ && \
   curl -sSL https://nodejs.org/dist/${VERSION}/node-${VERSION}.tar.gz | tar -xz && \

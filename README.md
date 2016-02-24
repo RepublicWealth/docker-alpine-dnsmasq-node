@@ -1,5 +1,5 @@
-# docker-alpine-dnsmasq-node
-Minimal Node.js Docker Images built on Alpine Linux with support for DNS service discovery
+# docker-alpine-node
+Minimal Node.js Docker Images built on Alpine Linux with S6 process manager
 
 ---------------------------------------------------------
 
@@ -53,7 +53,7 @@ then you don't need an `npm install` step in your Dockerfile and you don't need
 `base*` images.
 
 It is recommended you setup you process to run using [s6](http://skarnet.org/software/s6/)
-as s6 is using `ENTRYPOINT` to run its `init`. Example usage can be found in 
+as s6 is using `ENTRYPOINT` to run its `init`. Example usage can be found in
 [janeczku/alpine-kubernetes](https://hub.docker.com/r/janeczku/alpine-kubernetes/).
 
     FROM quay.io/republicwealth/alpine-node-kubernetes:base
@@ -61,12 +61,12 @@ as s6 is using `ENTRYPOINT` to run its `init`. Example usage can be found in
     # FROM quay.io/republicwealth/alpine-node-kubernetes
 
     WORKDIR /src
-    
+
     # Copy the s6 service.d file(s)
     # S6 requires and executable (755) runfile to be deployed to:
     # /etc/services.d/{APPLICATION NAME}/run
     COPY rootfs /
-    
+
     # Copy the application
     COPY bin ./bin
 
